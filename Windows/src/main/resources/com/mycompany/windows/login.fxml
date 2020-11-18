@@ -13,48 +13,48 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.windows.LoginController">
     <children>
-      <AnchorPane layoutX="149.0" layoutY="137.0" prefHeight="235.0" prefWidth="343.0" style="-fx-background-color: #54B948;">
+      <AnchorPane layoutX="279.0" prefHeight="480.0" prefWidth="361.0" style="-fx-background-color: #54B948;">
          <children>
-            <Label layoutX="14.0" layoutY="14.0" text="USERNAME :" textFill="WHITE">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="96.0" text="PASSWORD :" textFill="WHITE">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <TextField fx:id="tf_username" layoutX="14.0" layoutY="59.0" prefHeight="26.0" prefWidth="300.0" />
-            <PasswordField fx:id="pf_password" layoutX="14.0" layoutY="139.0" prefHeight="26.0" prefWidth="300.0" />
-            <Button layoutX="262.0" layoutY="186.0" mnemonicParsing="false" onAction="#nexthalaman" onMouseClicked="#login" text="LOGIN" />
-         </children>
-      </AnchorPane>
-      <AnchorPane prefHeight="82.0" prefWidth="640.0" style="-fx-background-color: #54B948;">
-         <children>
-            <ImageView fitHeight="75.0" fitWidth="95.0" layoutX="538.0" layoutY="4.0">
-               <image>
-                  <Image url="@../../../logo/logo-removebg-preview.png" />
-               </image>
-            </ImageView>
-            <Text fill="WHITE" layoutX="14.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistem E-CATIN " wrappingWidth="176.49609375">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="259.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOG-IN" wrappingWidth="122.49609375">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutY="432.0" prefHeight="48.0" prefWidth="640.0" style="-fx-background-color: #54B948;">
-         <children>
-            <Text layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created by kelompok tree" wrappingWidth="243.49609375" />
+            <AnchorPane layoutX="21.0" layoutY="101.0" prefHeight="254.0" prefWidth="320.0" style="-fx-background-color: white;">
+               <children>
+                  <TextField fx:id="tf_username" layoutX="22.0" layoutY="101.0" prefHeight="26.0" prefWidth="277.0" promptText="Username" />
+                  <PasswordField fx:id="pf_password" layoutX="22.0" layoutY="151.0" prefHeight="26.0" prefWidth="277.0" promptText="Password" />
+                  <Button layoutX="78.0" layoutY="198.0" mnemonicParsing="false" onAction="#nexthalaman" onMouseClicked="#login" prefHeight="32.0" prefWidth="176.0" style="-fx-background-color: #54B948; -fx-background-radius: 75px;" text="LOGIN" textFill="WHITE" />
+                  <Label fx:id="notifikasi" layoutX="41.0" layoutY="70.0" prefHeight="18.0" prefWidth="250.0" text="Masukan Username dan Password Anda !" textAlignment="CENTER" textFill="RED" />
+                  <Text fill="#54b948" layoutX="113.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <VBox prefHeight="200.0" prefWidth="100.0" />
-      <Label fx:id="notifikasi" layoutX="197.0" layoutY="100.0" prefHeight="18.0" prefWidth="250.0" text="Masukan Username dan Password Anda !" textAlignment="CENTER" textFill="RED" />
+      <ImageView fitHeight="218.0" fitWidth="220.0" layoutX="36.0" layoutY="40.0">
+         <image>
+            <Image url="@../../../logo/logo-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="21.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistem E-CATIN " wrappingWidth="176.49609375">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#54b948" layoutX="88.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-CatIn">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text fill="#54b948" layoutX="53.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistem Catat Poin">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created by Tree">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
