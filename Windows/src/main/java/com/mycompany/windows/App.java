@@ -1,5 +1,6 @@
 package com.mycompany.windows;
 
+import com.mycompany.windows.DBConnect;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
