@@ -19,7 +19,7 @@
                <children>
                   <TextField fx:id="tf_username" layoutX="22.0" layoutY="101.0" prefHeight="26.0" prefWidth="277.0" promptText="Username" />
                   <PasswordField fx:id="pf_password" layoutX="22.0" layoutY="151.0" prefHeight="26.0" prefWidth="277.0" promptText="Password" />
-                  <Button layoutX="78.0" layoutY="198.0" mnemonicParsing="false" onAction="#nexthalaman" onMouseClicked="#login" prefHeight="32.0" prefWidth="176.0" style="-fx-background-color: #54B948; -fx-background-radius: 75px;" text="LOGIN" textFill="WHITE" />
+                  <Button layoutX="78.0" layoutY="198.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="32.0" prefWidth="176.0" style="-fx-background-color: #54B948; -fx-background-radius: 75px;" text="LOGIN" textFill="WHITE" />
                   <Label fx:id="notifikasi" layoutX="41.0" layoutY="70.0" prefHeight="18.0" prefWidth="250.0" text="Masukan Username dan Password Anda !" textAlignment="CENTER" textFill="RED" />
                   <Text fill="#54b948" layoutX="113.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN">
                      <font>

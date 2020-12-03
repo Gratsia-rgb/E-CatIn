@@ -6,6 +6,7 @@ com\mycompany\windows\PrimaryController.class
 com\mycompany\windows\StartStudentController.class
 com\mycompany\windows\CatatController.class
 com\mycompany\windows\EditController.class
+com\mycompany\windows\HapusController.class
 com\mycompany\windows\App.class
 com\mycompany\windows\CariAdmin.class
 com\mycompany\windows\DBConnect.class

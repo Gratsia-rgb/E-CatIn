@@ -24,30 +24,29 @@ import javafx.stage.Stage;
 
 
 public class HapusController implements Initializable {
-        
+     
+    @FXML 
     private TextField nim;
+    @FXML
     private TextField output;
-    
-    public void CariData() throws SQLException{
+    @FXML
+    public void HapusData(ActionEvent event) throws SQLException, IOException {
+        
         String inputnim;
         inputnim = nim.getText();   
         String tampil = null;
         
-        Connection connection = DBConnect.getInstance().getConnection();        
+        Connection connection = DBConnect.getInstance().getConnection();  
+        
         Statement statement = connection.createStatement();  
-        String sql = "SELECT NIM,poin FROM mahasiswa WHERE nim" + "='" + inputnim + "'";
-        ResultSet resultset = statement.executeQuery(sql);
-        
-        while(resultset.next()){
-            tampil = resultset.getString("NIM"); 
-        }
-        output.setText(tampil);
+        String sql = "DELETE FROM mahasiswa WHERE nim = '" + inputnim + "';";
+        ResultSet resultset = statement.executeQuery(sql);   
+        connection.commit();
+       
+        output.setText("Berhasil");
+
     }
-    
-    public void HapusData() throws SQLException{
-        
-    }
-        
+    @FXML
     public void buttoncari(ActionEvent event) throws IOException{
         Parent p;
         p = FXMLLoader.load(getClass().getResource("CariAdmin.fxml"));
@@ -56,7 +55,7 @@ public class HapusController implements Initializable {
         w.setScene(cari);
         w.show();
     }
-    
+    @FXML
     public void buttoncatat(ActionEvent event) throws IOException{
         Parent p = FXMLLoader.load(getClass().getResource("Catat.fxml"));
         Scene catat = new Scene(p);
@@ -64,7 +63,7 @@ public class HapusController implements Initializable {
         w.setScene(catat);
         w.show();
     }
-    
+    @FXML
     public void buttonedit(ActionEvent event) throws IOException{
         Parent p = FXMLLoader.load(getClass().getResource("Edit.fxml"));
         Scene edit = new Scene(p);
@@ -72,7 +71,7 @@ public class HapusController implements Initializable {
         w.setScene(edit);
         w.show();
     }
-     
+    @FXML 
     public void buttonvalidasi(ActionEvent event) throws IOException{
         Parent p = FXMLLoader.load(getClass().getResource("ValidasiAdmin.fxml"));
         Scene va = new Scene(p);
@@ -80,7 +79,7 @@ public class HapusController implements Initializable {
         w.setScene(va);
         w.show();
     }
-     
+    @FXML 
     public void buttonback(ActionEvent event) throws IOException{
         Parent p = FXMLLoader.load(getClass().getResource("halamanawaladmin.fxml"));
         Scene back = new Scene(p);

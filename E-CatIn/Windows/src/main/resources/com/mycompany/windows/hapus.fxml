@@ -54,8 +54,8 @@
          </children>
       </AnchorPane>
       <Text layoutX="323.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIM" />
-      <TextField layoutX="369.0" layoutY="90.0" />
-      <TextField layoutX="303.0" layoutY="155.0" prefHeight="100.0" prefWidth="257.0" />
-      <Button layoutX="479.0" layoutY="269.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Hapus" />
+      <TextField fx:id="nim" layoutX="369.0" layoutY="90.0" />
+      <TextField fx:id="output" layoutX="303.0" layoutY="155.0" prefHeight="100.0" prefWidth="257.0" />
+      <Button layoutX="479.0" layoutY="269.0" mnemonicParsing="false" onAction="#HapusData" prefHeight="25.0" prefWidth="83.0" text="Hapus" />
    </children>
 </AnchorPane>

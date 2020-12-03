@@ -7,6 +7,7 @@ package com.mycompany.windows;
 
 import java.io.IOException;
 import java.net.URL;
+import static java.time.Clock.system;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -23,12 +24,10 @@ import javafx.stage.Stage;
  */
 public class StartStudentController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    
     public void buttoncari(ActionEvent event) throws IOException{
         Parent p;
-        p = FXMLLoader.load(getClass().getResource("CariMahasiswa.fxml"));
+        p = FXMLLoader.load(getClass().getResource("searchstudent.fxml"));
         Scene cari = new Scene(p);
         Stage w = (Stage)((Node)event.getSource()).getScene().getWindow();
         w.setScene(cari);
@@ -44,11 +43,7 @@ public class StartStudentController implements Initializable {
     }
     
     public void buttonlogout(ActionEvent event) throws IOException{
-        Parent p = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene back = new Scene(p);
-        Stage w = (Stage)((Node)event.getSource()).getScene().getWindow();
-        w.setScene(back);
-        w.show();
+        App.setRoot("login");
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

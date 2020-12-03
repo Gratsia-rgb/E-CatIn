@@ -4,6 +4,7 @@ package com.mycompany.windows;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,33 +16,48 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class EditController implements Initializable {
-    
+   
+    Connection connection = DBConnect.getInstance().getConnection(); 
+
+    @FXML 
     private TextField nim;
-    private TextField output;
-    
-    public void CariData() throws SQLException{
-        String inputnim;
-        inputnim = nim.getText();   
-        String tampil = null;
+    @FXML 
+    private TextField poin;   
+    @FXML  
+    public void Cari(ActionEvent event) throws SQLException, IOException {
         
-        Connection connection = DBConnect.getInstance().getConnection();        
+        String inputnim = nim.getText();  
+        String outputpoin = null;
+               
         Statement statement = connection.createStatement();  
-        String sql = "SELECT NIM,poin FROM mahasiswa WHERE nim" + "='" + inputnim + "'";
-        ResultSet resultset = statement.executeQuery(sql);
-        
+        String sql = "SELECT * FROM mahasiswa WHERE nim = '" + inputnim + "';";
+        ResultSet resultset = statement.executeQuery(sql); 
         while(resultset.next()){
-            tampil = resultset.getString("NIM"); 
+            outputpoin = resultset.getString("poin");
         }
-        output.setText(tampil);
+        poin.setText(outputpoin);
     }
     
-    public void EditData() throws SQLException{
+    public void Edit(ActionEvent event) throws SQLException, IOException {
+        Editt(nim.getText(),poin.getText());
         
+       
     }
+    
+    public void Editt(String inputnim, String inputpoin) throws SQLException{     
+        String sql = "UPDATE mahasiswa SET poin = ? " + "WHERE nim = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, inputpoin);
+        statement.setString(2, inputnim);
+        statement.executeUpdate();
+    }
+    
+  
     @FXML
     public void buttoncari(ActionEvent event) throws IOException{
         Parent p;

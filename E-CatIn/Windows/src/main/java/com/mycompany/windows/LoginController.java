@@ -10,13 +10,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 public class LoginController {
-
+    
+      
     @FXML
     private TextField tf_username;
 
@@ -34,27 +36,29 @@ public class LoginController {
         password = pf_password.getText();
         
         Connection connection = DBConnect.getInstance().getConnection();
-        
         Statement statement = connection.createStatement();
-        
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM admin where username" + "='" + username + "'and password = '" +password+"'");
+        String sql;
+        sql = "SELECT * FROM admin where username" + "='" + username + "'and password = '" +password+"'";
+        ResultSet resultSet = statement.executeQuery(sql);
     
         if(resultSet.next()){
             App.setRoot("halamanawaladmin");
-
-        }
-        
+        }        
         else{
-            notifikasi.setText("Gagal Masuk, Data Anda Belum Tersimpan !");
+            sql = "SELECT * FROM mahasiswa where nama" + "='" + username + "'and password = '" +password+"'";
+            ResultSet resultSet1 = statement.executeQuery(sql);
+            if(resultSet1.next()){
+                App.setRoot("startstudent");
+            }else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Info");
+                alert.setHeaderText(null);
+                alert.setContentText("Data Anda Belum Tersimpan");
+                alert.show();
+            }
         }
     
     }
-
-    @FXML
-    void nexthalaman(ActionEvent event) {
-
-    }
-
 }
 
 

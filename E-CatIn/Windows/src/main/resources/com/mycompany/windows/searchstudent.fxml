@@ -11,11 +11,6 @@
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="263.0" style="-fx-background-color: #54B948;">
          <children>
-            <Label layoutX="44.0" layoutY="143.0" text="NIM" textFill="#fffefe">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
             <Button layoutX="70.0" layoutY="248.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="123.0" style="-fx-background-color: grey;" text="Cari">
                <font>
                   <Font size="20.0" />
@@ -38,8 +33,12 @@
             <Button layoutX="260.0" layoutY="12.0" mnemonicParsing="false" onAction="#buttonback" prefHeight="25.0" prefWidth="52.0" text="Back" />
          </children>
       </AnchorPane>
-      <Text layoutX="323.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIM" />
-      <TextField fx:id="nim" layoutX="369.0" layoutY="90.0" />
-      <TextField fx:id="output" layoutX="303.0" layoutY="155.0" prefHeight="177.0" prefWidth="257.0" />
+      <Text layoutX="333.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAMA" />
+      <TextField fx:id="output" layoutX="425.0" layoutY="175.0" prefHeight="34.0" prefWidth="123.0" />
+      <TextField fx:id="output1" layoutX="425.0" layoutY="217.0" prefHeight="34.0" prefWidth="123.0" />
+      <Text layoutX="333.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="POIN" />
+      <Button layoutX="480.0" layoutY="110.0" mnemonicParsing="false" onAction="#CariMahsiswa" prefHeight="25.0" prefWidth="75.0" text="Submit" />
+      <TextField fx:id="nim" layoutX="347.0" layoutY="105.0" prefHeight="34.0" prefWidth="123.0" />
+      <Text layoutX="315.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIM" />
    </children>
 </AnchorPane>

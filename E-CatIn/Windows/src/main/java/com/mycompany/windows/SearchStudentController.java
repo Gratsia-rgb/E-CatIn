@@ -19,39 +19,44 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Gratsia
- */
+
 public class SearchStudentController implements Initializable {
-@FXML
-    private TextField nim;
+
     @FXML
     private TextField output;
-    
     @FXML
-    public void CariMahasiswaController(MouseEvent event) throws SQLException, IOException {
+    private TextField output1;
+    @FXML
+    private TextField nim;
+    @FXML
+    public void CariMahsiswa(ActionEvent event) throws SQLException, IOException {
+        
         String inputnim;
-        inputnim = nim.getText();      
-        String sql = "SELECT mahasiswa.NIM, mahasiswa.poin FROM mahaisswa where nim" + "='" + inputnim;
+        inputnim = nim.getText();   
+        String tampil1 = null;
+        String tampil2 = null;
         
         Connection connection = DBConnect.getInstance().getConnection();        
-        Statement statement = connection.createStatement();        
-        ResultSet resultset = statement.executeQuery(sql);
-        
+        Statement statement = connection.createStatement();  
+        String sql = "SELECT nama,poin FROM mahasiswa WHERE nim = '" + inputnim + "';";
+        ResultSet resultset = statement.executeQuery(sql);        
         while(resultset.next()){
-            output.setText(resultset.getInt("NIM") + "|"+ resultset.getInt("poin") ); 
-        }
+            tampil1 = resultset.getString("nama");
+            tampil2 = resultset.getString("poin");
+        }        
+        output.setText(tampil1);
+        output1.setText(tampil2);
+
     }
      @FXML
      public void buttonvalidasi(ActionEvent event) throws IOException{
         Parent p;
-        p = FXMLLoader.load(getClass().getResource("ValidasiMahasiswa.fxml"));
+        p = FXMLLoader.load(getClass().getResource("studentvalidate.fxml"));
         Scene cari = new Scene(p);
         Stage w = (Stage)((Node)event.getSource()).getScene().getWindow();
         w.setScene(cari);
@@ -59,7 +64,7 @@ public class SearchStudentController implements Initializable {
     }
     @FXML
     public void buttonback(ActionEvent event) throws IOException{
-        Parent p = FXMLLoader.load(getClass().getResource("halamanawalmahasiswa.fxml"));
+        Parent p = FXMLLoader.load(getClass().getResource("startstudent.fxml"));
         Scene back = new Scene(p);
         Stage w = (Stage)((Node)event.getSource()).getScene().getWindow();
         w.setScene(back);
