@@ -65,7 +65,11 @@ public class HalamanAdminController implements Initializable {
     }
      
     public void buttonvalogout(ActionEvent event) throws IOException{
-        App.setRoot("login");
+        Parent p = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene back = new Scene(p);
+        Stage w = (Stage)((Node)event.getSource()).getScene().getWindow();
+        w.setScene(back);
+        w.show();
     }
      
         

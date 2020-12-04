@@ -18,6 +18,8 @@ public class DBConnect {
 
     public Connection getConnection(){
         String connect_string = "jdbc:sqlite:C:\\Users\\User\\Documents\\NetBeansProjects\\E-CatIn\\DB\\dbnya.db";
+        //C:\\Users\\User\\Documents\\NetBeansProjects\\E-CatIn\\DB\\dbnya.db";
+        //C:\Users\Don Harry\Documents\NetBeansProjects\E-CatIn\E-CatIn\DB
         Connection connection = null;
         try {
             Class.forName("org.sqlite.JDBC"); 
