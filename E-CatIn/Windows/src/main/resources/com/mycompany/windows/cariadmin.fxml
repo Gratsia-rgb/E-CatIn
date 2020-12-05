@@ -6,9 +6,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.windows.CariAdmin">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.windows.CariAdmin">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="263.0" style="-fx-background-color: #54B948;">
+      <AnchorPane prefHeight="413.0" prefWidth="263.0" style="-fx-background-color: #54B948;">
          <children>
             <Text fill="#fffafa" layoutX="40.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN">
                <font>
@@ -54,5 +54,6 @@
       <TextField id="output" fx:id="output1" layoutX="300.0" layoutY="155.0" prefHeight="37.0" prefWidth="113.0" text=" NIM" />
       <TextField id="output" fx:id="output2" layoutX="418.0" layoutY="200.0" prefHeight="37.0" prefWidth="142.0" />
       <TextField id="output" fx:id="output11" layoutX="300.0" layoutY="200.0" prefHeight="37.0" prefWidth="113.0" text=" POIN" />
+      <Button fx:id="laporan" layoutX="303.0" layoutY="281.0" mnemonicParsing="false" onAction="#lihatLaporan" prefHeight="25.0" prefWidth="257.0" text="Laporan Kegiatan Mahasiswa" />
    </children>
 </AnchorPane>

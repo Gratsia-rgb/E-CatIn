@@ -5,6 +5,7 @@ requires javafx.controls;
     requires java.sql;
     requires javafx.base;
     requires javafx.graphics;
+
     
     opens com.mycompany.windows to javafx.fxml;
     exports com.mycompany.windows;
