@@ -5,21 +5,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.windows.StudentValidateController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.windows.StudentValidateController">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="263.0" style="-fx-background-color: #54B948;">
+      <AnchorPane prefHeight="480.0" prefWidth="263.0" style="-fx-background-color: #54B948;">
          <children>
             <Label layoutX="44.0" layoutY="143.0" text="NIM" textFill="#fffefe">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button layoutX="70.0" layoutY="248.0" mnemonicParsing="false" onAction="#buttoncari" prefHeight="48.0" prefWidth="123.0" text="Cari">
+            <Button layoutX="70.0" layoutY="270.0" mnemonicParsing="false" onAction="#buttoncari" prefHeight="37.0" prefWidth="123.0" text="Cari">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button layoutX="70.0" layoutY="306.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="123.0" style="-fx-background-color: grey;" text="Validasi">
+            <Button layoutX="70.0" layoutY="330.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="123.0" style="-fx-background-color: grey;" text="Validasi">
                <font>
                   <Font size="20.0" />
                </font>
@@ -31,9 +31,9 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="262.0" prefHeight="48.0" prefWidth="339.0" style="-fx-background-color: grey;">
+      <AnchorPane layoutX="262.0" prefHeight="48.0" prefWidth="378.0" style="-fx-background-color: grey;">
          <children>
-            <Button layoutX="260.0" layoutY="12.0" mnemonicParsing="false" onAction="#buttonback" prefHeight="25.0" prefWidth="52.0" text="Back" />
+            <Button layoutX="288.0" layoutY="9.0" mnemonicParsing="false" onAction="#buttonback" prefHeight="30.0" prefWidth="75.0" text="BACK" />
          </children>
       </AnchorPane>
    </children>

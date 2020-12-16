@@ -4,6 +4,7 @@ package com.mycompany.windows;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,14 +17,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class EditController implements Initializable {
    
-    Connection connection = DBConnect.getInstance().getConnection(); 
-
+   // Connection connection = DBConnect.getInstance().getConnection(); 
+    Connection connection;
     @FXML 
     private TextField nim;
     @FXML 
@@ -33,15 +33,22 @@ public class EditController implements Initializable {
         
         String inputnim = nim.getText();  
         String outputpoin = null;
-               
+        try{
+        Class.forName("org.sqlite.JDBC");
+        connection =DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Don Harry\\Documents\\NetBeansProjects\\E-CatIn\\E-CatIn\\DB\\dbnya.db");    
         Statement statement = connection.createStatement();  
+         
         String sql = "SELECT * FROM mahasiswa WHERE nim = '" + inputnim + "';";
         ResultSet resultset = statement.executeQuery(sql); 
         while(resultset.next()){
             outputpoin = resultset.getString("poin");
         }
         poin.setText(outputpoin);
+     }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
+  
     
     public void Edit(ActionEvent event) throws SQLException, IOException {
         Editt(nim.getText(),poin.getText());

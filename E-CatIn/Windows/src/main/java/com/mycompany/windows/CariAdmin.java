@@ -1,10 +1,10 @@
 
 package com.mycompany.windows;
 
-import com.mycompany.windows.DBConnect;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,21 +16,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 
 public class CariAdmin implements Initializable {
-    
+    Connection connection;
     @FXML 
     private TextField nim;
     @FXML 
@@ -43,20 +39,22 @@ public class CariAdmin implements Initializable {
     private Button laporan;
 
     @FXML    
-    public void CariAdmin(ActionEvent event) throws SQLException, IOException {
-        
+    public void CariAdmin(ActionEvent event) throws SQLException, IOException { 
+        cari();
+        XYChart.Series setData = new XYChart.Series<>(); 
+    }
+    void cari(){ 
         String inputnim;
         inputnim = nim.getText();   
         String tampil1 = null;
         String tampil2 = null;
-        String t = null;
-       
-        XYChart.Series setData = new XYChart.Series<>();
-        
-        Connection connection = DBConnect.getInstance().getConnection();        
-        Statement statement = connection.createStatement();  
-        String sql = "SELECT * FROM mahasiswa WHERE nim = '" + inputnim + "';";
-        ResultSet resultset = statement.executeQuery(sql);        
+        String t = null;  
+        try{
+            Class.forName("org.sqlite.JDBC");
+            connection =DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Don Harry\\Documents\\NetBeansProjects\\E-CatIn\\E-CatIn\\DB\\dbnya.db");    
+            Statement statement = connection.createStatement();  
+            String sql = "SELECT * FROM mahasiswa WHERE nim = '" + inputnim + "';";
+            ResultSet resultset = statement.executeQuery(sql);        
       
         while(resultset.next()){
             t = resultset.getString("nim");
@@ -70,9 +68,6 @@ public class CariAdmin implements Initializable {
         if(inputnim.equals(t) == true ){
             output.setText(tampil1);
             output2.setText(tampil2);
-            
-           //setData.getData().add(new XYChart.Data(tampil1, tampil2));
-           //grafik.getData().addAll(setData);
         } else {             
              Alert alert = new Alert(AlertType.INFORMATION);
              alert.setTitle("Info");
@@ -80,8 +75,10 @@ public class CariAdmin implements Initializable {
              alert.setContentText("Data Anda Belum Tersimpan");
              alert.show();
         }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
-    
         @FXML
     public void buttoncari(ActionEvent event) throws IOException{
         Parent p;
@@ -142,12 +139,20 @@ public class CariAdmin implements Initializable {
         w.show();
     }
     
+    @FXML
+    void lihatGrafik(ActionEvent event) throws IOException {
+        Parent p;
+        p = FXMLLoader.load(getClass().getResource("grafikseluruhmahasiswa.fxml"));
+        Scene cari = new Scene(p);
+        Stage w = (Stage)((Node)event.getSource()).getScene().getWindow();
+        w.setScene(cari);
+        w.show();
+    }
+    
     @FXML 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       // XYChart.Series setData = new XYChart.Series<>();
-       // setData.getData().add(new XYChart.Data("Edon", 2000));
-       // grafik.getData().addAll(setData);
+
     }
 
     

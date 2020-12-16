@@ -1,65 +1,86 @@
 package com.mycompany.windows;
 
-import com.mycompany.windows.DBConnect;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
-
-public class CatatController implements Initializable {
-    
-    Connection connection = DBConnect.getInstance().getConnection(); 
+public class CatatController extends DBConnect{
     @FXML
-    private TextField nim;
+    private TextField NIM;
     @FXML
     private TextField nama;
     @FXML
-    private TextField namakegiatan;
-    @FXML
-    private TextField jeniskegiatan;
+    private TextField kegiatan;
+    private ComboBox comboBox;
     @FXML
     private TextField poin;
-
+    @FXML
+    private Label namaadmin;
+    @FXML
+    private Label output;
+    @FXML
+    private Label label_imagepath;
+    String image_path = null;
+    @FXML
+    private TextField jeniskegiatan;
+    
+    public CatatController() {
+        String sql = "CREATE TABLE IF NOT EXISTS mahasiswa ("
+                + "ID_mahasiswa INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + "NIM INTEGER NOT NULL,"
+                + "nama TEXT NOT NULL,"
+                + "password TEXT,"
+                + "poin INTEGER,"
+                + "kegiatan STRING,"
+                + "jeniskegiatan STRING"
+                + ");";
+        try {
+            Statement stmt = super.getConn().createStatement();
+            stmt.execute(sql);
+        } catch(SQLException e) {
+            System.out.print(e.getMessage());
+        }
+        System.out.println("Success");
+    }
+     public void tambahmhs(mahasiswa tambah) {
+        String sql = "INSERT INTO mahasiswa (NIM, nama, kegiatan, jeniskegiatan, poin) VALUES (?,?,?,?,?)";
+        try (PreparedStatement pstmt = super.getConn().prepareStatement(sql)) {
+            pstmt.setInt(1, tambah.getNim());
+            pstmt.setString(2, tambah.getNama());
+            pstmt.setString(3, tambah.getKegiatan());
+            pstmt.setString(4, tambah.getJeniskegiatan());
+            pstmt.setInt(5, tambah.getPoin());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
     @FXML
     public void Catat(ActionEvent event) throws SQLException, IOException {
-        String inputnim = nim.getText();  
-        String inputnama = nama.getText();
-        String inputnamakegiatan = namakegiatan.getText();
-        String inputjeniskegiatan = jeniskegiatan.getText();
-        String inputpoin = poin.getText();
-        Insert(inputnim,inputnama,inputnim,inputpoin,inputnamakegiatan,inputjeniskegiatan);
+       mahasiswa nmhs = new mahasiswa (NIM.getPrefColumnCount(),
+                nama.getText(),
+                kegiatan.getText(),
+                jeniskegiatan.getText(),
+                poin.getPrefColumnCount());
+       tambahmhs(nmhs);
     }
-    public void Insert(String inputnim, String inputnama, String inputpassword, String inputpoin, String inputnamakegiatan, String inputjeniskegiatan) throws SQLException{     
-        String sql = "INSERT INTO mahasiswa(nim,nama,password,poin,kegiatan,jeniskegiatan) VALUES (?,?,?,?,?,?)";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, inputnim);
-        statement.setString(2, inputnama);
-        statement.setString(3, inputpassword);
-        statement.setString(4, inputpoin);
-        statement.setString(5, inputnamakegiatan);
-        statement.setString(6, inputjeniskegiatan);
-        statement.executeUpdate();
-    }
+
     @FXML
     public void buttoncari(ActionEvent event) throws IOException{
         Parent p;
@@ -102,9 +123,21 @@ public class CatatController implements Initializable {
         w.setScene(back);
         w.show();
     }
-    @FXML
-    @Override
+    
+  // @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         
+    }
+
+    @FXML
+    private void cariGambar(ActionEvent event) {
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().add(new ExtensionFilter("*Images","*.png","*.jpg","*.jpeg"));
+        File f = fc.showOpenDialog(null);
+        if(f!=null){
+            label_imagepath.setText("Selected File: " + f.getAbsolutePath());
+        
+        }
     }
 }

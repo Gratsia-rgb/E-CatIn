@@ -8,6 +8,7 @@ package com.mycompany.windows;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,14 +20,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 
 public class SearchStudentController implements Initializable {
-
+    Connection connection;
     @FXML
     private TextField output;
     @FXML
@@ -41,8 +40,12 @@ public class SearchStudentController implements Initializable {
         String tampil1 = null;
         String tampil2 = null;
         
-        Connection connection = DBConnect.getInstance().getConnection();        
+        try{
+        Class.forName("org.sqlite.JDBC");
+        connection =DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Don Harry\\Documents\\NetBeansProjects\\E-CatIn\\E-CatIn\\DB\\dbnya.db");    
         Statement statement = connection.createStatement();  
+         
+        
         String sql = "SELECT nama,poin FROM mahasiswa WHERE nim = '" + inputnim + "';";
         ResultSet resultset = statement.executeQuery(sql);        
         while(resultset.next()){
@@ -51,7 +54,9 @@ public class SearchStudentController implements Initializable {
         }        
         output.setText(tampil1);
         output1.setText(tampil2);
-
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
      @FXML
      public void buttonvalidasi(ActionEvent event) throws IOException{

@@ -3,40 +3,27 @@ package com.mycompany.windows;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 
 public class DBConnect {
-    
-    private DBConnect(){
-        
-    }
-    public static DBConnect getInstance(){
-        return new DBConnect();
-    }
+    protected Connection conn = null;
 
-    public Connection getConnection(){
-        String connect_string = "jdbc:sqlite:C:\\Users\\User\\Documents\\NetBeansProjects\\E-CatIn\\E-CatIn\\DB\\dbnya.db";
-        //C:\\Users\\User\\Documents\\NetBeansProjects\\E-CatIn\\DB\\dbnya.db";
-        //C:\Users\Don Harry\Documents\NetBeansProjects\E-CatIn\E-CatIn\DB
-        Connection connection = null;
-        try {
-            Class.forName("org.sqlite.JDBC"); 
-            connection = DriverManager.getConnection(connect_string);
-            return connection;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-             e.printStackTrace();
+    public DBConnect(){
+        try{
+            Class.forName("org.sqlite.JDBC");
+            this.conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Don Harry\\Documents\\NetBeansProjects\\E-CatIn\\E-CatIn\\DB\\dbnya.db");
+        }catch(ClassNotFoundException | SQLException e){
+            System.err.println(e.getClass().getName() + ": "+e.getMessage());
+            System.exit(0);
         }
-        
-        return connection;
     }
-
+    public Connection getConn(){
+        return this.conn;
+    }
+    
+        
 }
-
-
 
 
 

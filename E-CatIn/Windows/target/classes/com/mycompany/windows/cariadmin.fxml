@@ -6,54 +6,55 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.windows.CariAdmin">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.windows.CariAdmin">
    <children>
-      <AnchorPane prefHeight="413.0" prefWidth="263.0" style="-fx-background-color: #54B948;">
+      <AnchorPane prefHeight="480.0" prefWidth="263.0" style="-fx-background-color: #54B948;">
          <children>
-            <Text fill="#fffafa" layoutX="40.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN">
+            <Text fill="#fffafa" layoutX="35.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN">
                <font>
                   <Font size="28.0" />
                </font>
             </Text>
-            <Button layoutX="70.0" layoutY="125.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="123.0" style="-fx-background-color: grey;" text="Cari">
+            <Button layoutX="70.0" layoutY="145.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="123.0" style="-fx-background-color: grey;" text="Cari">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button layoutX="70.0" layoutY="180.0" mnemonicParsing="false" onAction="#buttoncatat" prefHeight="37.0" prefWidth="123.0" text="Catat">
+            <Button layoutX="70.0" layoutY="205.0" mnemonicParsing="false" onAction="#buttoncatat" prefHeight="37.0" prefWidth="123.0" text="Catat">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button layoutX="70.0" layoutY="235.0" mnemonicParsing="false" onAction="#buttonedit" prefHeight="37.0" prefWidth="123.0" text="Edit">
+            <Button layoutX="70.0" layoutY="265.0" mnemonicParsing="false" onAction="#buttonedit" prefHeight="37.0" prefWidth="123.0" text="Edit">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button layoutX="70.0" layoutY="290.0" mnemonicParsing="false" onAction="#buttonhapus" prefHeight="37.0" prefWidth="123.0" text="Hapus">
+            <Button layoutX="70.0" layoutY="325.0" mnemonicParsing="false" onAction="#buttonhapus" prefHeight="37.0" prefWidth="123.0" text="Hapus">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button layoutX="70.0" layoutY="345.0" mnemonicParsing="false" onAction="#buttonvalidasi" prefHeight="37.0" prefWidth="123.0" text="Validasi">
+            <Button layoutX="70.0" layoutY="385.0" mnemonicParsing="false" onAction="#buttonvalidasi" prefHeight="37.0" prefWidth="123.0" text="Validasi">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="262.0" prefHeight="48.0" prefWidth="339.0" style="-fx-background-color: grey;">
+      <AnchorPane layoutX="262.0" prefHeight="48.0" prefWidth="379.0" style="-fx-background-color: grey;">
          <children>
-            <Button layoutX="254.0" layoutY="11.0" mnemonicParsing="false" onAction="#buttonback" prefHeight="25.0" prefWidth="65.0" text="Back" />
+            <Button layoutX="288.0" layoutY="9.0" mnemonicParsing="false" onAction="#buttonback" prefHeight="30.0" prefWidth="75.0" text="BACK" />
          </children>
       </AnchorPane>
-      <Text layoutX="323.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIM" />
-      <TextField id="nim" fx:id="nim" layoutX="369.0" layoutY="90.0" />
-      <TextField id="output" fx:id="output" layoutX="418.0" layoutY="155.0" prefHeight="37.0" prefWidth="142.0" />
-      <Button layoutX="518.0" layoutY="90.0" mnemonicParsing="false" onAction="#CariAdmin" prefHeight="25.0" prefWidth="65.0" text="Cari" />
+      <Text layoutX="302.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIM" />
+      <TextField id="nim" fx:id="nim" layoutX="353.0" layoutY="90.0" prefHeight="26.0" prefWidth="180.0" />
+      <TextField id="output" fx:id="output" layoutX="418.0" layoutY="155.0" prefHeight="38.0" prefWidth="193.0" />
+      <Button layoutX="543.0" layoutY="90.0" mnemonicParsing="false" onAction="#CariAdmin" prefHeight="25.0" prefWidth="65.0" text="Cari" />
       <TextField id="output" fx:id="output1" layoutX="300.0" layoutY="155.0" prefHeight="37.0" prefWidth="113.0" text=" NIM" />
-      <TextField id="output" fx:id="output2" layoutX="418.0" layoutY="200.0" prefHeight="37.0" prefWidth="142.0" />
+      <TextField id="output" fx:id="output2" layoutX="418.0" layoutY="200.0" prefHeight="38.0" prefWidth="194.0" />
       <TextField id="output" fx:id="output11" layoutX="300.0" layoutY="200.0" prefHeight="37.0" prefWidth="113.0" text=" POIN" />
-      <Button fx:id="laporan" layoutX="303.0" layoutY="281.0" mnemonicParsing="false" onAction="#lihatLaporan" prefHeight="25.0" prefWidth="257.0" text="Laporan Kegiatan Mahasiswa" />
+      <Button fx:id="laporan" layoutX="303.0" layoutY="281.0" mnemonicParsing="false" onAction="#lihatLaporan" prefHeight="26.0" prefWidth="306.0" text="Laporan Kegiatan Mahasiswa" />
+      <Button fx:id="laporan1" layoutX="303.0" layoutY="318.0" mnemonicParsing="false" onAction="#lihatGrafik" prefHeight="26.0" prefWidth="306.0" text="Grafik Kegiatan Mahasiswa" />
    </children>
 </AnchorPane>

@@ -10,33 +10,24 @@ package com.mycompany.windows;
  * @author Don Harry
  */
 public class Tampilantabelseluruhmahasiswa {
-   private Integer ID_Mahasiswa,NIM;
-   private String nama,password,poin,kegiatan,jeniskegiatan;
 
-    public Tampilantabelseluruhmahasiswa(Integer ID_Mahasiswa, Integer NIM, String nama, String password, String poin, String kegiatan, String jeniskegiatan) {
-        this.ID_Mahasiswa = ID_Mahasiswa;
-        this.NIM = NIM;
+
+ String nim,nama,poin,kegiatan,jeniskegiatan;
+
+    public Tampilantabelseluruhmahasiswa(String nim, String nama, String poin, String kegiatan, String jeniskegiatan) {
+        this.nim = nim;
         this.nama = nama;
-        this.password = password;
         this.poin = poin;
         this.kegiatan = kegiatan;
         this.jeniskegiatan = jeniskegiatan;
     }
 
-    public Integer getID_Mahasiswa() {
-        return ID_Mahasiswa;
+    public String getNim() {
+        return nim;
     }
 
-    public void setID_Mahasiswa(Integer ID_Mahasiswa) {
-        this.ID_Mahasiswa = ID_Mahasiswa;
-    }
-
-    public Integer getNIM() {
-        return NIM;
-    }
-
-    public void setNIM(Integer NIM) {
-        this.NIM = NIM;
+    public void setNim(String nim) {
+        this.nim = nim;
     }
 
     public String getNama() {
@@ -45,14 +36,6 @@ public class Tampilantabelseluruhmahasiswa {
 
     public void setNama(String nama) {
         this.nama = nama;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getPoin() {
@@ -78,5 +61,8 @@ public class Tampilantabelseluruhmahasiswa {
     public void setJeniskegiatan(String jeniskegiatan) {
         this.jeniskegiatan = jeniskegiatan;
     }
-   
+ 
+ 
+
+    
 }

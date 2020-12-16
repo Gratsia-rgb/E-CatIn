@@ -49,7 +49,7 @@ public class HalamanAdminController implements Initializable {
     }
     
     public void buttonhapus(ActionEvent event) throws IOException{
-        Parent p = FXMLLoader.load(getClass().getResource("Hapus.fxml"));
+        Parent p = FXMLLoader.load(getClass().getResource("hapus.fxml"));
         Scene hapus = new Scene(p);
         Stage w = (Stage)((Node)event.getSource()).getScene().getWindow();
         w.setScene(hapus);
@@ -65,11 +65,7 @@ public class HalamanAdminController implements Initializable {
     }
      
     public void buttonvalogout(ActionEvent event) throws IOException{
-        Parent p = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene back = new Scene(p);
-        Stage w = (Stage)((Node)event.getSource()).getScene().getWindow();
-        w.setScene(back);
-        w.show();
+        App.setRoot("login");
     }
      
         

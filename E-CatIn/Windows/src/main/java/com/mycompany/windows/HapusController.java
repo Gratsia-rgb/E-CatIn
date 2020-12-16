@@ -8,6 +8,7 @@ package com.mycompany.windows;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,34 +20,40 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
 public class HapusController implements Initializable {
-     
-    @FXML 
+     Connection connection;
+     @FXML
     private TextField nim;
-    @FXML
+     @FXML
     private TextField output;
-    @FXML
+     
+     @FXML
     public void HapusData(ActionEvent event) throws SQLException, IOException {
         
         String inputnim;
         inputnim = nim.getText();   
         String tampil = null;
-        
-        Connection connection = DBConnect.getInstance().getConnection();  
-        
+        try{
+            Class.forName("org.sqlite.JDBC");
+            connection =DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Don Harry\\Documents\\NetBeansProjects\\E-CatIn\\E-CatIn\\DB\\dbnya.db");    
         Statement statement = connection.createStatement();  
         String sql = "DELETE FROM mahasiswa WHERE nim = '" + inputnim + "';";
         ResultSet resultset = statement.executeQuery(sql);   
         connection.commit();
        
         output.setText("Berhasil");
-
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
-    @FXML
+     @FXML
     public void buttoncari(ActionEvent event) throws IOException{
         Parent p;
         p = FXMLLoader.load(getClass().getResource("CariAdmin.fxml"));
@@ -55,7 +62,7 @@ public class HapusController implements Initializable {
         w.setScene(cari);
         w.show();
     }
-    @FXML
+     @FXML
     public void buttoncatat(ActionEvent event) throws IOException{
         Parent p = FXMLLoader.load(getClass().getResource("Catat.fxml"));
         Scene catat = new Scene(p);
@@ -63,7 +70,7 @@ public class HapusController implements Initializable {
         w.setScene(catat);
         w.show();
     }
-    @FXML
+     @FXML
     public void buttonedit(ActionEvent event) throws IOException{
         Parent p = FXMLLoader.load(getClass().getResource("Edit.fxml"));
         Scene edit = new Scene(p);
@@ -71,7 +78,7 @@ public class HapusController implements Initializable {
         w.setScene(edit);
         w.show();
     }
-    @FXML 
+     @FXML
     public void buttonvalidasi(ActionEvent event) throws IOException{
         Parent p = FXMLLoader.load(getClass().getResource("ValidasiAdmin.fxml"));
         Scene va = new Scene(p);

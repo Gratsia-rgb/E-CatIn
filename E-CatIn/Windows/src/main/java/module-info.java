@@ -9,5 +9,6 @@ requires javafx.controls;
     
     opens com.mycompany.windows to javafx.fxml;
     exports com.mycompany.windows;
+    requires jasperreports;
 }
 

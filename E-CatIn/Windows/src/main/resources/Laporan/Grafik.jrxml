@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.0.final using JasperReports Library version 6.12.1-ac0eebdb29e4c0985457bab279a6db744d661530  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Grafik" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d687afe5-c5a3-4862-8f9e-bfd62d2b0e2e">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[bWFoYXNpc3dhIEFTICwxMjIsNjMsYzNiNWE1M2QtZDY0Mi00ODdhLTkxY2ItMjA2YWEyNzdhZmY3
+Ow==]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataLaporan"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT mahasiswa. NIM ,
+	mahasiswa.nama,
+	mahasiswa.poin,
+	mahasiswa.kegiatan,
+	mahasiswa.jeniskegiatan
+FROM mahasiswa]]>
+	</queryString>
+	<field name="NIM" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="NIM"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mahasiswa"/>
+	</field>
+	<field name="nama" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="nama"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mahasiswa"/>
+	</field>
+	<field name="poin" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="poin"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mahasiswa"/>
+	</field>
+	<field name="kegiatan" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="kegiatan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mahasiswa"/>
+	</field>
+	<field name="jeniskegiatan" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="jeniskegiatan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mahasiswa"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="102" y="10" width="350" height="30" uuid="318d589c-03a6-48b8-bbbe-cafe603d3640"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRAFIK KEGIATAN MAHASISWA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="207" y="40" width="140" height="30" uuid="f384d8ba-082f-4633-8a0a-9e3bc8d622bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[SISTEM E-CATIN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<image>
+				<reportElement x="229" y="0" width="97" height="100" uuid="e992361e-b045-48ae-8123-60eb8cf43281"/>
+				<imageExpression><![CDATA["C:\\Users\\Don Harry\\Desktop\\E-CatIn update jasper\\Windows\\src\\main\\resources\\logo\\logo.jpeg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="87" y="10" width="380" height="50" uuid="d7d6bbf2-2bf7-4c15-9b97-f1efbb1fa755"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Grafik dibawah ini menampilkan informasi berupa nim dan poin mahasiswa dari total kegiatan yang diikuti oleh setiap mahasiswa.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="233" splitType="Stretch">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="20" width="552" height="200" uuid="93a84bc8-4d51-48d8-ab77-b281294e4820"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset resetType="Report"/>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{NIM}]]></seriesExpression>
+						<categoryExpression><![CDATA[0]]></categoryExpression>
+						<valueExpression><![CDATA[$F{poin}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="15" width="100" height="30" uuid="4726c14e-2883-4047-85b6-7146cd7f2272"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="15" width="62" height="30" uuid="fe5f81c1-2570-43ac-86b1-7c15b242717c"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="207" y="12" width="140" height="30" uuid="beb1e016-fc27-478d-a0ff-ebabe3a7f35e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Created by tree]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
